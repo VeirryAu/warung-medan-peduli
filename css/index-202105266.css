@@ -1,0 +1,82 @@
+body {
+  font-family: Gotham, Muli, 'Courier New', Courier, monospace;
+  color: #212121;
+}
+
+.body.red {
+  background-color: #ec443a;
+}
+
+.form-group {
+  color: white !important;
+}
+
+.text-muted {
+  color: white !important;
+}
+
+.home-content-title {
+  font-family: GothamBold;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.home-content-value {
+  color: #fced51;
+  text-align: center;
+  line-height: 40px;
+  font-size: 3rem;
+}
+
+.home-content-description {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.image-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.container.login {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1281px) {
+  .wrapper {
+    min-height: 100vh;
+    margin-right: 37.5%;
+    margin-left: 37.5%;
+  }
+}
+
+/* Desktop Mode */
+@media screen and (max-width: 991px) {
+  .wrapper {
+    min-height: 100vh;
+    margin-right: 1.8rem;
+    margin-left: 1.8rem;
+  }
+}
+
+
+/* Desktop Mode */
+@media screen and (min-width: 992px) {
+  .wrapper {
+    min-height: 100vh;
+    margin-right: 30%;
+    margin-left: 30%;
+  }
+}
