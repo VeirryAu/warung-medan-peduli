@@ -81,7 +81,7 @@ a, a:hover, a:focus, a:active {
       </a>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-          <label for="nama_warung">Nama Warung</label>
+          <label onclick="handlePermission" for="nama_warung">Nama Warung</label>
           <input type="text" name="nama_warung" class="form-control" value="<?php echo $nama_warung; ?>" id="nama_warung" placeholder="Masukkan Nama Warung">
         </div>
 
@@ -146,6 +146,7 @@ a, a:hover, a:focus, a:active {
   $(document).ready(function () {
 
     function handlePermission() {
+      console.log('test')
       navigator.permissions.query({name:'geolocation'}).then(function(result) {
         if (result.state == 'granted') {
           report(result.state);
