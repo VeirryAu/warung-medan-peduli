@@ -137,79 +137,66 @@ a, a:hover, a:focus, a:active {
         <div class="form-group">
           <label for="nama_relawan">Nama Relawan</label>
           <input type="text" name="nama_relawan" class="form-control" value="<?php echo $nama_relawan; ?>" id="nama_relawan" placeholder="Masukkan Nama Relawan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="nik">NIK</label>
           <input type="text" name="nik" class="form-control" value="<?php echo $nik; ?>" id="nik" placeholder="Masukkan NIK">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="no_hp">No HP</label>
           <input type="text" name="no_hp" class="form-control" value="<?php echo $no_hp; ?>" id="no_hp" placeholder="Masukkan No HP">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="alamat">Alamat</label>
           <input type="text" name="alamat" class="form-control" value="<?php echo $alamat; ?>" id="alamat" placeholder="Masukkan Alamat">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="instagram">Instagram</label>
           <input type="text" name="instagram" class="form-control" value="<?php echo $instagram; ?>" id="instagram" placeholder="Masukkan Instagram">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="rekening">Rekening</label>
           <input type="text" name="rekening" class="form-control" value="<?php echo $rekening; ?>" id="rekening" placeholder="Masukkan Rekening">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="kendaraan">Kendaraan</label>
           <input type="text" name="kendaraan" class="form-control" value="<?php echo $kendaraan; ?>" id="kendaraan" placeholder="Masukkan Kendaraan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="relasi">Relasi</label>
           <input type="text" name="relasi" class="form-control" value="<?php echo $relasi; ?>" id="relasi" placeholder="Masukkan Relasi">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="jenis_kelamin">Jenis Kelamin</label>
           <input type="text" name="jenis_kelamin" class="form-control" value="<?php echo $jenis_kelamin; ?>" id="jenis_kelamin" placeholder="Masukkan Jenis Kelamin">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
         
         <div class="form-group">
           <label for="umur">Umur</label>
           <input type="text" name="umur" class="form-control" value="<?php echo $umur; ?>" id="umur" placeholder="Masukkan Umur">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="pekerjaan">Pekerjaan</label>
           <input type="text" name="pekerjaan" class="form-control" value="<?php echo $pekerjaan; ?>" id="pekerjaan" placeholder="Masukkan Pekerjaan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="available_day">Hari yang tersedia</label>
           <input type="text" name="available_day" class="form-control" value="<?php echo $available_day; ?>" id="available_day" placeholder="Masukkan Hari yang tersedia">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="photo">Photo</label>
           <input type="file" name="photo" class="form-control" id="photo" placeholder="Masukkan Photo">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

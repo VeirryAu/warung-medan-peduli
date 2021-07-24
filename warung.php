@@ -137,67 +137,56 @@ a, a:hover, a:focus, a:active {
         <div class="form-group">
           <label for="nama_warung">Nama Warung</label>
           <input type="text" name="nama_warung" class="form-control" value="<?php echo $nama_warung; ?>" id="nama_warung" placeholder="Masukkan Nama Warung">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="nama_pemilik">Nama Pemilik</label>
           <input type="text" name="nama_pemilik" class="form-control" value="<?php echo $nama_pemilik; ?>" id="nama_pemilik" placeholder="Masukkan Nama Pemilik">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="phone_no">Nomor HP</label>
           <input type="text" name="phone_no" class="form-control" value="<?php echo $phone_no; ?>" id="phone_no" placeholder="Masukkan Nomor HP">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="kecamatan">Kecamatan</label>
           <input type="text" name="kecamatan" class="form-control" value="<?php echo $kecamatan; ?>" id="kecamatan" placeholder="Masukkan Kecamatan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
           <input type="text" name="tanggal_kunjungan" class="form-control" value="<?php echo $tanggal_kunjungan; ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="qty_pesanan">QTY Pesanan</label>
           <input type="number" name="qty_pesanan" class="form-control" value="<?php echo $qty_pesanan; ?>" id="qty_pesanan" placeholder="Masukkan QTY Pesanan">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
         
         <div class="form-group">
           <label for="jumlah_uang">Jumlah Uang</label>
           <input type="number" name="jumlah_uang" class="form-control" value="<?php echo $jumlah_uang; ?>" id="jumlah_uang" placeholder="Masukkan Jumlah Uang">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="gambar_warung">Gambar Warung</label>
           <input type="file" name="gambar_warung" class="form-control" id="gambar_warung" placeholder="Masukkan Gambar Warung">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="photo_pemilik">Photo Pemilik</label>
           <input type="file" name="photo_pemilik" class="form-control" id="photo_pemilik" placeholder="Masukkan Photo Pemilik">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="longitude">Longitude</label>
           <input disabled type="text" name="longitude" class="form-control" value="<?php echo $longitude; ?>" id="location" placeholder="Masukkan Longitude">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="latitude">latitude</label>
           <input disabled type="text" name="latitude" class="form-control" value="<?php echo $latitude; ?>" id="location" placeholder="Masukkan latitude">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

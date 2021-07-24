@@ -137,19 +137,16 @@ a, a:hover, a:focus, a:active {
         <div class="form-group">
           <label for="nama_donatur">Nama Donatur</label>
           <input type="text" name="nama_donatur" class="form-control" value="<?php echo $nama_donatur; ?>" id="nama_donatur" placeholder="Masukkan Nama Donatur">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="nomor_rekening">Nomor Rekening</label>
           <input type="text" name="nomor_rekening" class="form-control" value="<?php echo $nomor_rekening; ?>" id="nomor_rekening" placeholder="Masukkan Nomor Rekening">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
 
         <div class="form-group">
           <label for="nilai_donasi">Nilai Donasi</label>
           <input type="number" name="nilai_donasi" class="form-control" value="<?php echo $nilai_donasi; ?>" id="nilai_donasi" placeholder="Masukkan Nilai Donasi">
-          <!-- <small id="emailHelp" class="form-text text-muted">Didaftarkan oleh admin</small> -->
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
