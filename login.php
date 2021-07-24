@@ -31,7 +31,7 @@
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, `password` FROM tbl_user WHERE username = ?";
+        $sql = "SELECT id, username, `password`, roleAs FROM tbl_user WHERE username = ?";
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -47,7 +47,7 @@
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $roleAs);
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $hashed_password){
                             // Password is correct, so start a new session
@@ -57,6 +57,7 @@
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
+                            $_SESSION["roleAs"] = $roleAs;
                             
                             // Redirect user to index page
                             header("location: index.php");
@@ -89,7 +90,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
+  <title>Login - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
   <?php include 'css.php'; ?>
   <?php include 'js.php'; ?>
 </head>
