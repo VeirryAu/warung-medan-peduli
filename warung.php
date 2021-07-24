@@ -9,7 +9,7 @@
 
   require_once "config.php";
 
-  $nama_warung = $nama_pemilik = $phone_no = $tanggal_kunjungan = "";
+  $nama_warung = $nama_pemilik = $phone_no = $kecamatan = $tanggal_kunjungan = "";
   $qty_pesanan = $jumlah_uang = $longitude = $latitude = 0;
   $form_error = "";
 
@@ -21,7 +21,40 @@
   }
 
   // Processing form data when form is submitted
-  if($_SERVER["REQUEST_METHOD"] == "POST"){}
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $target_dir = "uploads/photo_pemilik/" . date("YMd") . "/";
+    $file_name = basename($_FILES["photo_pemilik"]["name"]);
+    $target_file = $target_dir . strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
+
+    $uploadOk = 1;
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+      $form_error = "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+      if (!move_uploaded_file($_FILES["photo_pemilik"]["tmp_name"], $target_file)) {
+        $form_error = "Sorry, there was an error uploading your file.";
+      }
+    }
+
+    $target_dir = "uploads/gambar_warung/" . date("YMd") . "/";
+    $file_name = basename($_FILES["gambar_warung"]["name"]);
+    $target_file = $target_dir . uniqid() . pathinfo($file_name, PATHINFO_EXTENSION);
+    
+    $uploadOk2 = 1;
+    
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk1 != 0 && $uploadOk2 == 0) {
+      $form_error = "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+      if (!move_uploaded_file($_FILES["gambar_warung"]["tmp_name"], $target_file)) {
+        $form_error = "Sorry, there was an error uploading your file.";
+      }
+    }
+
+  }
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +102,7 @@ a, a:hover, a:focus, a:active {
 
         <div class="form-group">
           <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
-          <input type="text" name="tanggal_kunjungan" class="form-control" value="<?php echo $tanggal_kunjungan; ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
+          <input type="date" disabled name="tanggal_kunjungan" class="form-control" value="<?php echo date('Y-m-d'); ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
         </div>
 
         <div class="form-group">
@@ -109,4 +142,21 @@ a, a:hover, a:focus, a:active {
     
   <div>
 </body>
+<script>
+  $(document).ready(function () {
+    function onPositionUpdate(position)
+    {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        $('#longitude').val(position.coords.longitude);
+        $('#latitude').val(position.coords.latitude);
+    }
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onPositionUpdate);
+    } else {
+      alert("navigator.geolocation is not available");
+    }
+  })
+</script>
 </html>
