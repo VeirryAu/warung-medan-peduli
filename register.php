@@ -100,7 +100,7 @@
 
     <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <div class="form-group">
         <label for="roleAs">Role As</label>
         <select class="form-control" id="roleAs" name="roleAs">
@@ -117,12 +117,12 @@
 
       <div class="form-group">
         <label for="fullName">Nama Lengkap</label>
-        <input type="text" name="fullName" class="form-control" value="<?php echo $fullName; ?>" id="fullName" placeholder="Masukkan Nama Lengkap">
+        <input type="text" name="fullName" autocomplete="nope" class="form-control" value="<?php echo $fullName; ?>" id="fullName" placeholder="Masukkan Nama Lengkap">
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" id="passowrd" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="passowrd" placeholder="Password" sautocomplete="new-password">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
