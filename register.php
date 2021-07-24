@@ -122,7 +122,7 @@
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" id="passowrd" placeholder="Password" sautocomplete="new-password">
+        <input type="password" name="password" class="form-control" id="passowrd" placeholder="Password" autocomplete="new-password">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
