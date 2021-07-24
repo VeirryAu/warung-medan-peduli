@@ -7,10 +7,7 @@
     exit;
   }
 
-  require_once "config.php";
-
-  $nama_warung = $nama_pemilik = $phone_no = $tanggal_kunjungan = "";
-  $qty_pesanan = $jumlah_uang = $nilai_donasi = 0;
+  $nama_donatur = $nomor_rekening = $nilai_donasi = "";
   $form_error = "";
 
   function test_input($data) {
@@ -20,8 +17,60 @@
     return $data;
   }
 
+  if ($_SERVER["REQUEST_METHOD"] =="GET"){
+    // Set parameters
+    $nama_donatur = $_GET['nama_donatur'];
+    $nomor_rekening = $_GET['nomor_rekening'];
+    $nilai_donasi = $_GET['nilai_donasi'];
+  }
+
   // Processing form data when form is submitted
-  if($_SERVER["REQUEST_METHOD"] == "POST"){}
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    require_once "config.php";
+    if(empty(trim($_POST["nama_donatur"]))){
+      $form_err = "Please enter nama_donatur.";
+    } else{
+      $nama_donatur = test_input($_POST["nama_donatur"]);
+    }
+
+    if(empty(trim($_POST["nomor_rekening"]))){
+      $form_err = "Please enter nomor_rekening.";
+    } else{
+      $nomor_rekening = test_input($_POST["nomor_rekening"]);
+    }
+
+    if(empty(trim($_POST["nilai_donasi"]))){
+      $form_err = "Please enter nilai_donasi.";
+    } else{
+      $nilai_donasi = test_input($_POST["nilai_donasi"]);
+    }
+
+    if (empty($form_err)) {
+      // Prepare a select statement
+      $sql = "INSERT INTO tbl_donasi (nama_donatur, nomor_rekening, nilai_donasi, createdBy) VALUES(?,?,?,?)";
+      if($stmt = mysqli_prepare($link, $sql)){
+          // Bind variables to the prepared statement as parameters
+          mysqli_stmt_bind_param($stmt, "ssss", $param_nama_donatur, $param_nomor_rekening, $param_nilai_donasi, $param_createdBy);
+          
+          // Set parameters
+          $param_nama_donatur = $nama_donatur;
+          $param_nomor_rekening = $nomor_rekening;
+          $param_nilai_donasi = $nilai_donasi;
+          $param_createdBy = $_SESSION["username"];
+
+          // Attempt to execute the prepared statement
+          if(mysqli_stmt_execute($stmt)){
+            header("location:donasi.php?message=Success%20Input%20Data%20Donasi");
+          } else {
+            header("location:donasi.php?message=Gagal%20Input%20Data%20Donasi:$stmt->error&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+          }
+              
+      }
+    } else {
+      header("location:donasi.php?message=$form_err&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+    }
+    mysqli_close($link);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +95,7 @@ a, a:hover, a:focus, a:active {
       <a href="index.php">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
+      <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
           <label for="nama_donatur">Nama Donatur</label>
