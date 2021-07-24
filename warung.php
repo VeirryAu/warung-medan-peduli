@@ -7,8 +7,6 @@
     exit;
   }
 
-  require_once "config.php";
-
   $nama_warung = $nama_pemilik = $alamat = $nama_menu = $phone_no = $kecamatan = $createdBy = $tanggal_kunjungan = $gambar_warung = $photo_pemilik = "";
   $qty_pesanan = $jumlah_uang = $longitude = $latitude = 0;
   $form_err = "";

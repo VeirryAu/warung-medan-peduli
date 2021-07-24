@@ -7,10 +7,10 @@
     exit;
   }
 
-  require_once "config.php";
 
-  $nama_warung = $nama_pemilik = $phone_no = $tanggal_kunjungan = "";
-  $qty_pesanan = $jumlah_uang = 0;
+  $nama_relawan = $nik = $no_hp = $alamat = $instagram = $alamat = $instagram = $rekening = $createdBy = "";
+  $kendaraan = $relasi = $jenis_kelamin = $pekerjaan = $available_day = $photo = "";
+  $umur = 0;
   $form_error = "";
 
   function test_input($data) {
@@ -20,62 +20,109 @@
     return $data;
   }
 
+  if ($_SERVER["REQUEST_METHOD"] =="GET"){
+    // Set parameters
+    $nama_relawan = $_GET['nama_relawan'];
+    $nik = $_GET['nik'];
+    $no_hp = $_GET['no_hp'];
+    $alamat = $_GET['alamat'];
+    $instagram = $_GET['instagram'];
+    $rekening = $_GET['rekening'];
+    $kendaraan = $_GET['kendaraan'];
+    $relasi = $_GET['relasi'];
+    $jenis_kelamin = $_GET['jenis_kelamin'];
+    $umur = $_GET['umur'];
+    $pekerjaan = $_GET['pekerjaan'];
+    $available_day = $_GET['available_day'];
+    $photo = $_GET['photo'];
+  }
+
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     require_once "config.php";
-    if(empty(trim($_POST["nama_pemilik"]))){
-      $form_err = "Please enter nama_pemilik.";
+    if(empty(trim($_POST["nama_relawan"]))){
+      $form_err = "Please enter nama_relawan.";
     } else{
-      $nama_pemilik = test_input($_POST["nama_pemilik"]);
+      $nama_relawan = test_input($_POST["nama_relawan"]);
     }
 
-    if(empty(trim($_POST["nama_warung"]))){
-      $form_err = "Please enter nama_warung.";
+    if(empty(trim($_POST["nik"]))){
+      $form_err = "Please enter nik.";
     } else{
-      $nama_warung = test_input($_POST["nama_warung"]);
+      $nik = test_input($_POST["nik"]);
     }
     
-    if(empty(trim($_POST["phone_no"]))){
-      $form_err = "Please enter phone_no.";
+    if(empty(trim($_POST["no_hp"]))){
+      $form_err = "Please enter no_hp.";
     } else{
-      $phone_no = test_input($_POST["phone_no"]);
-    }
-
-    if(empty(trim($_POST["kecamatan"]))){
-      $form_err = "Please enter kecamatan.";
-    } else{
-      $kecamatan = test_input($_POST["kecamatan"]);
-    }
-
-    if(empty(trim($_POST["qty_pesanan"]))){
-      $form_err = "Please enter qty_pesanan.";
-    } else{
-      $qty_pesanan = test_input($_POST["qty_pesanan"]);
-    }
-
-    if(empty(trim($_POST["jumlah_uang"]))){
-      $form_err = "Please enter jumlah_uang.";
-    } else{
-      $jumlah_uang = test_input($_POST["jumlah_uang"]);
-    }
-
-    if(empty(trim($_POST["tanggal_kunjungan"]))){
-      $form_err = "Please enter tanggal_kunjungan.";
-    } else{
-      $tanggal_kunjungan = test_input($_POST["tanggal_kunjungan"]);
+      $no_hp = test_input($_POST["no_hp"]);
     }
     
-    $target_dir = "uploads/photo_pemilik/" . date("YMd") . "/";
+    if(empty(trim($_POST["alamat"]))){
+      $form_err = "Please enter alamat.";
+    } else{
+      $alamat = test_input($_POST["alamat"]);
+    }
+    
+    if(empty(trim($_POST["instagram"]))){
+      $form_err = "Please enter instagram.";
+    } else{
+      $instagram = test_input($_POST["instagram"]);
+    }
+    
+    if(empty(trim($_POST["rekening"]))){
+      $form_err = "Please enter rekening.";
+    } else{
+      $rekening = test_input($_POST["rekening"]);
+    }
+
+    if(empty(trim($_POST["kendaraan"]))){
+      $form_err = "Please enter kendaraan.";
+    } else{
+      $kendaraan = test_input($_POST["kendaraan"]);
+    }
+
+    if(empty(trim($_POST["relasi"]))){
+      $form_err = "Please enter relasi.";
+    } else{
+      $relasi = test_input($_POST["relasi"]);
+    }
+    
+    if(empty(trim($_POST["jenis_kelamin"]))){
+      $form_err = "Please enter jenis_kelamin.";
+    } else{
+      $jenis_kelamin = test_input($_POST["jenis_kelamin"]);
+    }
+
+    if(empty(trim($_POST["umur"]))){
+      $form_err = "Please enter umur.";
+    } else{
+      $umur = test_input($_POST["umur"]);
+    }
+
+    if(empty(trim($_POST["pekerjaan"]))){
+      $form_err = "Please enter pekerjaan.";
+    } else{
+      $pekerjaan = test_input($_POST["pekerjaan"]);
+    }
+
+    if(count($_POST["available_day"]) == 0 || empty(implode(",", $_POST["available_day"]))){
+      $form_err = "Please enter available_day.";
+    } else{
+      $available_day = implode(",", $_POST["available_day"]);
+    }
+    
+    $target_dir = "uploads/photo/" . date("YMd") . "/";
     if (!file_exists($target_dir)) {
         mkdir($target_dir, 0777, true);
     }
-    $file_name = basename($_FILES["photo_pemilik"]['name']);
+    $file_name = basename($_FILES["photo"]['name']);
     $target_file = $target_dir . uniqid() . '.' . strtolower(pathinfo($file_name,PATHINFO_EXTENSION));
 
 
     $uploadOk = 1;
 
-    $check = getimagesize($_FILES["photo_pemilik"]["tmp_name"]);
+    $check = getimagesize($_FILES["photo"]["tmp_name"]);
     if($check === false) {
       $form_err = "File is not an image.";
       $uploadOk = 0;
@@ -88,79 +135,46 @@
       $form_err = "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     } else {
-      if (!move_uploaded_file($_FILES["photo_pemilik"]["tmp_name"], $target_file)) {
-        $form_err = "Sorry, there was an error uploading your file. photo_pemilik";
+      if (!move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+        $form_err = "Sorry, there was an error uploading your file. photo";
       } else {
-        $photo_pemilik = $target_file;
+        $photo = $target_file;
       }
-    }
-
-    $target_dir = "uploads/gambar_warung/" . date("YMd") . "/";
-    if (!file_exists($target_dir)) {
-      mkdir($target_dir, 0777, true);
-    }
-    $file_name = basename($_FILES["gambar_warung"]['name']);
-    $target_file2 = $target_dir . uniqid() . '.' . pathinfo($file_name, PATHINFO_EXTENSION);
-    
-    $uploadOk2 = 1;
-
-    $check = getimagesize($_FILES["gambar_warung"]["tmp_name"]);
-    if($check === false) {
-      $form_err = "File is not an image.";
-      $uploadOk2 = 0;
-    }
-    
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk != 0 && $uploadOk2 == 0) {
-      $form_err = "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-      if (!move_uploaded_file($_FILES["gambar_warung"]["tmp_name"], $target_file2)) {
-        $form_err = "Sorry, there was an error uploading your file. gambar_warung";
-      } else {
-        $gambar_warung = $target_file2;
-      }
-    }
-
-    if($uploadOk != 0){
-      $gambar_warung = test_input($_POST["gambar_warung"]);
-    }
-
-    if($uploadOk2 != 0){
-      $photo_pemilik = test_input($_POST["photo_pemilik"]);
     }
 
     if (empty($form_err)) {
       // Prepare a select statement
-      $sql = "INSERT INTO tbl_warung (nama_warung, nama_pemilik, phone_no, kecamatan, longitude, latitude, tanggal_kunjungan, qty_pesanan, jumlah_uang, createdBy, gambar_warung, photo_pemilik) VALUES(?,?,?, ?,?,?, ?,?,?, ?,?,?)";
+      $sql = "INSERT INTO tbl_relawan (nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdBy) VALUES(?,?,?,?,?, ?,?,?,?,?, ?,?,?,?)";
       if($stmt = mysqli_prepare($link, $sql)){
           // Bind variables to the prepared statement as parameters
-          mysqli_stmt_bind_param($stmt, "ssssiisiisss", $param_nama_warung, $param_nama_pemilik, $param_phone_no, $param_kecamatan, $param_longitude, $param_latitude, $param_tanggal_kunjungan, $param_qty_pesanan, $param_jumlah_uang, $param_createdBy, $param_gambar_warung, $param_photo_pemilik);
+          mysqli_stmt_bind_param($stmt, "ssssssssssssss", $param_nama_relawan, $param_nik, $param_no_hp, $param_alamat, $param_instagram, $param_rekening, $param_kendaraan, $param_relasi, $param_jenis_kelamin, $param_umur, $param_pekerjaan, $param_available_day, $param_photo, $param_createdBy);
           
           // Set parameters
-          $param_nama_warung = $nama_warung;
-          $param_nama_pemilik = $nama_pemilik;
-          $param_phone_no = $phone_no;
-          $param_kecamatan = $kecamatan;
-          $param_longitude = $longitude;
-          $param_latitude = $latitude;
-          $param_tanggal_kunjungan = $tanggal_kunjungan;
-          $param_qty_pesanan = $qty_pesanan;
-          $param_jumlah_uang = $jumlah_uang;
+          $param_nama_relawan = $nama_relawan;
+          $param_nik = $nik;
+          $param_no_hp = $no_hp;
+          $param_alamat = $alamat;
+          $param_instagram = $instagram;
+          $param_rekening = $rekening;
+          $param_kendaraan = $kendaraan;
+          $param_relasi = $relasi;
+          $param_jenis_kelamin = $jenis_kelamin;
+          $param_umur = $umur;
+          $param_pekerjaan = $pekerjaan;
+          $param_available_day = $available_day;
           $param_createdBy = $_SESSION["username"];
-          $param_gambar_warung = $target_file2;
-          $param_photo_pemilik = $target_file;
+          $param_photo = $target_file;
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
-            header("location:warung.php?message=Success%20Input%20Data%20Warung");
+            header("location:relawan.php?message=Success%20Input%20Data%20Relawan");
           } else {
-            header("location:warung.php?message=Gagal%20Input%20Data%20Warung&&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+            header("location:relawan.php?message=Gagal%20Input%20Data%20Relawan:$stmt->error&&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
           }
               
       }
     } else {
-      header("location:warung.php?message=$form_err&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+      header("location:relawan.php?message=$form_err&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
     }
     mysqli_close($link);
   }
@@ -188,6 +202,7 @@ a, a:hover, a:focus, a:active {
       <a href="index.php">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
+      <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype= "multipart/form-data" method="post">
         <div class="form-group">
           <label for="nama_relawan">Nama Relawan</label>
@@ -215,28 +230,57 @@ a, a:hover, a:focus, a:active {
         </div>
 
         <div class="form-group">
-          <label for="rekening">Rekening</label>
-          <input type="text" name="rekening" class="form-control" value="<?php echo $rekening; ?>" id="rekening" placeholder="Masukkan Rekening">
+          <label for="rekening">Bank/Nomor Rekening/Nama Rekening</label>
+          <input type="text" name="rekening" class="form-control" value="<?php echo $rekening; ?>" id="rekening" placeholder="contoh: BCA/20991009912/Andy Wil">
         </div>
 
         <div class="form-group">
           <label for="kendaraan">Kendaraan</label>
-          <input type="text" name="kendaraan" class="form-control" value="<?php echo $kendaraan; ?>" id="kendaraan" placeholder="Masukkan Kendaraan">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Mobil" name="kendaraan" id="kendaraan1" checked>
+            <label class="form-check-label" for="kendaraan1">
+              Mobil
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Motor" name="kendaraan" id="kendaraan2" >
+            <label class="form-check-label" for="kendaraan2">
+              Sepeda Motor
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Tidak ada" name="kendaraan" id="kendaraan3" >
+            <label class="form-check-label" for="kendaraan3">
+              Tidak ada
+            </label>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="relasi">Relasi</label>
-          <input type="text" name="relasi" class="form-control" value="<?php echo $relasi; ?>" id="relasi" placeholder="Masukkan Relasi">
+          <label for="relasi">Tim relawan yang saya kenal</label>
+          <input type="text" name="relasi" class="form-control" aria-describedby="relasiHelp"  value="<?php echo $relasi; ?>" id="relasi" placeholder="contoh: Andy,Budi,Jimmy">
+          <small id="relasiHelp" class="form-text text-muted">akan digunakan dalam pengaturan tim</small>
         </div>
 
         <div class="form-group">
           <label for="jenis_kelamin">Jenis Kelamin</label>
-          <input type="text" name="jenis_kelamin" class="form-control" value="<?php echo $jenis_kelamin; ?>" id="jenis_kelamin" placeholder="Masukkan Jenis Kelamin">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="1" name="jenis_kelamin" id="jenis_kelamin1" checked>
+            <label class="form-check-label" for="jenis_kelamin1">
+              Pria
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="0" name="jenis_kelamin" id="jenis_kelamin2">
+            <label class="form-check-label" for="jenis_kelamin2">
+              Wanita
+            </label>
+          </div>
         </div>
         
         <div class="form-group">
           <label for="umur">Umur</label>
-          <input type="text" name="umur" class="form-control" value="<?php echo $umur; ?>" id="umur" placeholder="Masukkan Umur">
+          <input type="number"  min="17" max="60" name="umur" class="form-control" value="<?php echo $umur === 0 ? 17 : $umur; ?>" id="umur" placeholder="Masukkan Umur">
         </div>
 
         <div class="form-group">
@@ -246,12 +290,53 @@ a, a:hover, a:focus, a:active {
 
         <div class="form-group">
           <label for="available_day">Hari yang tersedia</label>
-          <input type="text" name="available_day" class="form-control" value="<?php echo $available_day; ?>" id="available_day" placeholder="Masukkan Hari yang tersedia">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="available_day[]" id="available_day1">
+            <label class="form-check-label" for="available_day1">
+              Senin
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2" name="available_day[]" id="available_day2">
+            <label class="form-check-label" for="available_day2">
+              Selasa
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="3" name="available_day[]" id="available_day3">
+            <label class="form-check-label" for="available_day3">
+              Rabu
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="4" name="available_day[]" id="available_day4">
+            <label class="form-check-label" for="available_day4">
+              Kamis
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="5" name="available_day[]" id="available_day5">
+            <label class="form-check-label" for="available_day5">
+              Jumat
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="6" name="available_day[]" id="available_day6">
+            <label class="form-check-label" for="available_day6">
+              Sabtu
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="7" name="available_day[]" id="available_day7">
+            <label class="form-check-label" for="available_day7">
+              Minggu
+            </label>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="photo">Photo</label>
-          <input type="file" name="photo" class="form-control" id="photo" placeholder="Masukkan Photo">
+          <input type="file" accept="image/*" name="photo" class="form-control" id="photo" placeholder="Masukkan Photo Selfie">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
