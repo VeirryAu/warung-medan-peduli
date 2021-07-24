@@ -135,7 +135,7 @@ a, a:hover, a:focus, a:active {
           <input disabled type="text" name="latitude" class="form-control" value="<?php echo $latitude; ?>" id="location" placeholder="Masukkan latitude">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="submitButton" onclick="handlePermission" class="btn btn-primary">Submit</button>
       </form>
     </div>
 
@@ -143,9 +143,7 @@ a, a:hover, a:focus, a:active {
   <div>
 </body>
 <script>
-  $(document).ready(function () {
-
-    function handlePermission() {
+  function handlePermission() {
       console.log('test')
       navigator.permissions.query({name:'geolocation'}).then(function(result) {
         if (result.state == 'granted') {
@@ -165,9 +163,7 @@ a, a:hover, a:focus, a:active {
     console.log('Permission ' + state);
   }
 
-  handlePermission();
-
-
+  $(document).ready(function () {
     function onPositionUpdate(position)
     {
         var lat = position.coords.latitude;
@@ -176,11 +172,14 @@ a, a:hover, a:focus, a:active {
         $('#latitude').val(position.coords.latitude);
     }
 
+    $('#submitButton').click(function () {handlePermission(); })
+
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(onPositionUpdate);
     } else {
       alert("navigator.geolocation is not available");
     }
   })
+
 </script>
 </html>
