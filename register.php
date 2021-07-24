@@ -52,7 +52,7 @@
     }
     
     // Validate credentials
-    if(empty($username_err) && empty($password_err)){
+    if(empty($form_err)){
         // Prepare a select statement
         $sql = "INSERT INTO tbl_user (username, fullName, roleAs, `password`) VALUES(?,?,?,?)";
         if($stmt = mysqli_prepare($link, $sql)){
@@ -73,6 +73,8 @@
             }
                 
         }
+    } else {
+      header("location: register.php?message=$form_err&username=$username&fullName=$fullName&roleAs=$roleAs");
     }
     
     // Close connection
