@@ -144,21 +144,31 @@ a, a:hover, a:focus, a:active {
 </body>
 <script>
   $(document).ready(function () {
-    navigator.permissions.query({
-     name: 'geolocation'
-    }).then(function(result) {
+
+    function handlePermission() {
+      navigator.permissions.query({name:'geolocation'}).then(function(result) {
         if (result.state == 'granted') {
-            geoBtn.style.display = 'none';
+          report(result.state);
+          geoBtn.style.display = 'none';
         } else if (result.state == 'prompt') {
-            geoBtn.style.display = 'none';
-            navigator.geolocation.getCurrentPosition(revealPosition, positionDenied, geoSettings);
+          report(result.state);
+          geoBtn.style.display = 'none';
+          navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
         } else if (result.state == 'denied') {
-            geoBtn.style.display = 'inline';
+          report(result.state);
+          geoBtn.style.display = 'inline';
         }
         result.onchange = function() {
-            report(result.state);
+          report(result.state);
         }
-    });
+      });
+    }
+
+  function report(state) {
+    console.log('Permission ' + state);
+  }
+
+  handlePermission();
 
 
     function onPositionUpdate(position)
