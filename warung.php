@@ -9,7 +9,7 @@
 
   require_once "config.php";
 
-  $nama_warung = $nama_pemilik = $phone_no = $kecamatan = $createdBy = $tanggal_kunjungan = $gambar_warung = $photo_pemilik = "";
+  $nama_warung = $nama_pemilik = $alamat = $nama_menu = $phone_no = $kecamatan = $createdBy = $tanggal_kunjungan = $gambar_warung = $photo_pemilik = "";
   $qty_pesanan = $jumlah_uang = $longitude = $latitude = 0;
   $form_err = "";
 
@@ -24,6 +24,8 @@
 
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
     $nama_warung = $_GET['nama_warung'];
+    $alamat = $_GET['alamat'];
+    $nama_menu = $_GET['nama_menu'];
     $nama_pemilik = $_GET['nama_pemilik'];
     $phone_no = $_GET['phone_no'];
     $kecamatan = $_GET['kecamatan'];
@@ -42,6 +44,18 @@
       $form_err = "Please enter nama_pemilik.";
     } else{
       $nama_pemilik = test_input($_POST["nama_pemilik"]);
+    }
+
+    if(empty(trim($_POST["alamat"]))){
+      $form_err = "Please enter alamat.";
+    } else{
+      $alamat = test_input($_POST["alamat"]);
+    }
+
+    if(empty(trim($_POST["nama_menu"]))){
+      $form_err = "Please enter nama_menu.";
+    } else{
+      $nama_menu = test_input($_POST["nama_menu"]);
     }
 
     if(empty(trim($_POST["nama_warung"]))){
@@ -90,25 +104,24 @@
 
     $uploadOk = 1;
 
-    $check = getimagesize($_FILES["photo_pemilik"]["tmp_name"]);
-    if($check === false) {
-      $form_err = "File is not an image.";
-      $uploadOk = 0;
-    }
+    if (!empty($_FILES["photo_pemilik"]['name'])) {
+      $check = getimagesize($_FILES["photo_pemilik"]["tmp_name"]);
+      if($check === false) {
+        $form_err = "File is not an image. photo_pemilik";
+        $uploadOk = 0;
+      }
 
-
-
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-      $form_err = "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
+       // Check if $uploadOk is set to 0 by an error
       if (!move_uploaded_file($_FILES["photo_pemilik"]["tmp_name"], $target_file)) {
-        $form_err = "Sorry, there was an error uploading your file. photo_pemilik";
+          $form_err = "Sorry, there was an error uploading your file. photo_pemilik";
       } else {
         $photo_pemilik = $target_file;
       }
     }
+
+
+
+   
 
     $target_dir = "uploads/gambar_warung/" . date("YMd") . "/";
     if (!file_exists($target_dir)) {
@@ -131,31 +144,25 @@
     // if everything is ok, try to upload file
     } else {
       if (!move_uploaded_file($_FILES["gambar_warung"]["tmp_name"], $target_file2)) {
-        $form_err = "Sorry, there was an error uploading your file. gambar_warung";
+          $form_err = "Sorry, there was an error uploading your file. gambar_warung";
       } else {
         $gambar_warung = $target_file2;
       }
     }
 
-    if($uploadOk != 0){
-      $gambar_warung = test_input($_POST["gambar_warung"]);
-    }
-
-    if($uploadOk2 != 0){
-      $photo_pemilik = test_input($_POST["photo_pemilik"]);
-    }
-
     if (empty($form_err)) {
       // Prepare a select statement
-      $sql = "INSERT INTO tbl_warung (nama_warung, nama_pemilik, phone_no, kecamatan, longitude, latitude, tanggal_kunjungan, qty_pesanan, jumlah_uang, createdBy, gambar_warung, photo_pemilik) VALUES(?,?,?, ?,?,?, ?,?,?, ?,?,?)";
+      $sql = "INSERT INTO tbl_warung (nama_warung, nama_pemilik, alamat, nama_menu, phone_no, kecamatan, longitude, latitude, tanggal_kunjungan, qty_pesanan, jumlah_uang, createdBy, gambar_warung, photo_pemilik) VALUES(?,?,?, ?,?,?, ?,?,?, ?,?,?, ?,?)";
       if($stmt = mysqli_prepare($link, $sql)){
           // Bind variables to the prepared statement as parameters
-          mysqli_stmt_bind_param($stmt, "ssssiisiisss", $param_nama_warung, $param_nama_pemilik, $param_phone_no, $param_kecamatan, $param_longitude, $param_latitude, $param_tanggal_kunjungan, $param_qty_pesanan, $param_jumlah_uang, $param_createdBy, $param_gambar_warung, $param_photo_pemilik);
+          mysqli_stmt_bind_param($stmt, "ssssssiisiisss", $param_nama_warung, $param_nama_pemilik, $param_alamat, $param_nama_menu, $param_phone_no, $param_kecamatan, $param_longitude, $param_latitude, $param_tanggal_kunjungan, $param_qty_pesanan, $param_jumlah_uang, $param_createdBy, $param_gambar_warung, $param_photo_pemilik);
           
           // Set parameters
           $param_nama_warung = $nama_warung;
           $param_nama_pemilik = $nama_pemilik;
           $param_phone_no = $phone_no;
+          $param_alamat = $alamat;
+          $param_nama_menu = $nama_menu;
           $param_kecamatan = $kecamatan;
           $param_longitude = $longitude;
           $param_latitude = $latitude;
@@ -164,7 +171,11 @@
           $param_jumlah_uang = $jumlah_uang;
           $param_createdBy = $_SESSION["username"];
           $param_gambar_warung = $target_file2;
-          $param_photo_pemilik = $target_file;
+          if ($uploadOk2 == 0) {
+            $param_photo_pemilik = $target_file;
+          } else {
+            $param_photo_pemilik = null;
+          }
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
@@ -175,7 +186,7 @@
               
       }
     } else {
-      header("location:warung.php?message=$form_err&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+      header("location:warung.php?message=$form_err&nama_warung=$nama_warung&alamat=$alamat&nama_menu=$nama_menu&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
     }
     mysqli_close($link);
   }
@@ -216,6 +227,11 @@ a, a:hover, a:focus, a:active {
         </div>
 
         <div class="form-group">
+          <label for="alamat">Alamat</label>
+          <input type="text" name="alamat" class="form-control" value="<?php echo $alamat; ?>" id="alamat" placeholder="Masukkan Nama Pemilik">
+        </div>
+
+        <div class="form-group">
           <label for="phone_no">Nomor HP</label>
           <input type="text" name="phone_no" class="form-control" value="<?php echo $phone_no; ?>" id="phone_no" placeholder="Masukkan Nomor HP">
         </div>
@@ -228,6 +244,11 @@ a, a:hover, a:focus, a:active {
         <div class="form-group">
           <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
           <input type="date" readonly name="tanggal_kunjungan" class="form-control" value="<?php echo date('Y-m-d'); ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
+        </div>
+
+        <div class="form-group">
+          <label for="nama_menu">Nama Menu</label>
+          <input type="text" name="nama_menu" class="form-control" value="<?php echo $nama_menu; ?>" id="nama_menu" placeholder="Masukkan Nama Menu">
         </div>
 
         <div class="form-group">
