@@ -7,13 +7,13 @@
      $str = <<<EOD
                <script
                   async
-                  src="https://www.googletagmanager.com/gtag/js?id=G-9X14PJ858M"
+                  src="https://www.googletagmanager.com/gtag/js?id=G-RMKZFCDM2D"
                   />
                <script>
                window.dataLayer = window.dataLayer || [];
                function gtag(){dataLayer.push(arguments);}
                gtag('js', new Date());
-               gtag('config', 'G-9X14PJ858M',{ page_path: window.location.pathname });
+               gtag('config', 'G-RMKZFCDM2D',{ page_path: window.location.pathname });
                </script>
               
 EOD;
