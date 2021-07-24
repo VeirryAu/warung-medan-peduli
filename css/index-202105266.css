@@ -13,6 +13,18 @@ body {
   color: white;
 }
 
+.topnav-left {
+  float: left;
+  padding-top: 20px;
+  color: white;
+}
+
+.topnav-center {
+  float: center !important;
+  padding-top: 20px;
+  color: white;
+}
+
 .form-group {
   color: white !important;
 }

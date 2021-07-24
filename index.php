@@ -27,6 +27,16 @@ a, a:hover, a:focus, a:active {
 <body class="body red">
   <div class="wrapper red">
       <a href="logout.php" class="topnav-right">Log Out</a>
+      <?php 
+        if ($_SESSION["roleAs"] == "superadmin") {
+      ?>
+        <a href="register.php" class="topnav-left">Register</a>
+      <?php }?>
+      <?php 
+        if ($_SESSION["roleAs"] == "admin") {
+      ?>
+        <a href="admin.php" class="topnav-left">Admin</a>
+      <?php }?>
       <div class="container login">
 
       <a href="index.php">

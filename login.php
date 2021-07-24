@@ -97,7 +97,9 @@
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <img src="/public/logo-new.png" class="image-logo" />
+      <a href="index.php">
+        <img src="/public/logo-new.png" class="image-logo" />
+      </a>
     </div>
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

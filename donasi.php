@@ -10,7 +10,7 @@
   require_once "config.php";
 
   $nama_warung = $nama_pemilik = $phone_no = $tanggal_kunjungan = "";
-  $qty_pesanan = $jumlah_uang = 0;
+  $qty_pesanan = $jumlah_uang = $nilai_donasi = 0;
   $form_error = "";
 
   function test_input($data) {
