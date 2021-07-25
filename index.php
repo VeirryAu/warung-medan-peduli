@@ -24,8 +24,8 @@ a, a:hover, a:focus, a:active {
   color: inherit;
 }
 </style>
-<body class="body red">
-  <div class="wrapper red">
+<body class="body white">
+  <div class="text-primary">
       <a href="logout.php" class="topnav-right">Log Out</a>
       <?php 
         if ($_SESSION["roleAs"] == "superadmin") {
@@ -42,24 +42,32 @@ a, a:hover, a:focus, a:active {
       <a href="index.php">
         <img src="public/logo-new.png" alt="logo" class="image-logo" width="300" height="300" />
       </a>
-      <a class="link-ref" href="donasi.php">
-      <div class="home-content-title">Total Donasi</div>
-      <div class="home-content-value">641.088.000</div>
-      <div class="home-content-description">rupiah <br/> updated 25 Juli 2021, 6:38 PM</div>
-      </a>
+      <div class="grid-container-layout">
+        <div class="jumbotron mx-2">
+          <a class="link-ref" href="donasi.php">
+          <div class="home-content-title">Total Donasi</div>
+          <div class="home-content-value">641.088.000</div>
+          <div class="home-content-description">rupiah <br/> updated 25 Juli 2021, 6:38 PM</div>
+          </a>
+        </div>
+        <div class="jumbotron mx-2">
+          <a class="link-ref" href="warung.php">
+          <div class="home-content-title">Total warung yang terbantu</div>
+          <div class="home-content-value">129</div>
+          <div class="home-content-description">warung</div>
+          </a>
+        </div>
 
-      <a class="link-ref" href="warung.php">
-      <div class="home-content-title">Total warung yang terbantu</div>
-      <div class="home-content-value">129</div>
-      <div class="home-content-description">warung</div>
-      </a>
-
-      <div class="home-content-title">Total makanan yang dibagikan</div>
-      <div class="home-content-value">6.450</div>
-      <div class="home-content-description">paket</div>
+        <div class="jumbotron mx-2">
+          <div class="home-content-title">Total makanan yang dibagikan</div>
+          <div class="home-content-value">6.450</div>
+          <div class="home-content-description">paket</div>
+        </div>
+      </div>
       <a class="link-ref" href="relawan.php">
-        <div class="home-content-title">Jadi Relawan</div>
+        <div class="home-content-title bg-danger text-white btn">Jadi Relawan</div>
       </a>
+
     </div>
 
     
