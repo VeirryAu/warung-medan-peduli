@@ -42,19 +42,17 @@ a, a:hover, a:focus, a:active {
   color: inherit;
 }
 </style>
-<body class="body red">
-  <div class="wrapper red">
-    <div class="container login">
-      <a href="index.php">
-        <img src="/public/logo-new.png" class="image-logo" />
-      </a>
+<body class="body white">
+  <?php include 'header.php';getHeader(); ?>
+  <div class="container grid-container mt-4">
+    <div class="grid-container-layout">
       <?php
         foreach ($list as $key => $value) {
       ?>
-      <div class="card" style="width: 100%;">
+      <div class="card p-2" style="width: 100%;">
         <div class="">
           <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
-            <a href="#" style="padding:4px 10px;margin:0 10px;"" class="btn btn-danger topnav-right">Delete</a>
+            <a href="#" style="padding:4px 10px;margin:0 10px;" class="btn btn-danger topnav-right">Delete</a>
           <?php } ?>
           <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px">XXXX</h5>
           <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['nilai_donasi']; ?></p>
