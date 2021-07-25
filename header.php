@@ -8,8 +8,7 @@
               <img src="./public/logo-new.png" alt="logo" class="" width="100" height="100" />
             </a>
             <div>
-              <a href="register.php" class="btn btn-green">DAFTARKAN USER</a>
-              <a href="donasi.php" class="btn btn-danger">DAFTARKAN RELAWAN</a>
+              <a href="logout.php" class="topnav-right">Log Out</a>
             </div>
           </div>
         </div>

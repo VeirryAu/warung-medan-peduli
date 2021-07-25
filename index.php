@@ -26,7 +26,6 @@ a, a:hover, a:focus, a:active {
 </style>
 <body class="body white">
   <div class="text-primary">
-      <a href="logout.php" class="topnav-right">Log Out</a>
       <?php 
         if ($_SESSION["roleAs"] == "superadmin") {
       ?>
