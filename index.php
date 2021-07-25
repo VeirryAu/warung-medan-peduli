@@ -30,7 +30,7 @@ a, a:hover, a:focus, a:active {
       <?php 
         if ($_SESSION["roleAs"] == "superadmin") {
       ?>
-        <a href="register.php" class="topnav-left">Register</a>
+        <?php include 'header.php';getHeader(); ?>
       <?php }?>
       <?php 
         if ($_SESSION["roleAs"] == "admin") {
