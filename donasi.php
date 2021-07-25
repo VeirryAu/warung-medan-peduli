@@ -93,7 +93,7 @@ a, a:hover, a:focus, a:active {
   <div class="wrapper red">
     <div class="container login">
       <a href="index.php">
-        <img src="/public/logo-new.png" class="image-logo" />
+        <img src="/public/logo-new.png" alt="logo" class="image-logo" width="300" height="300" />
       </a>
       <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
