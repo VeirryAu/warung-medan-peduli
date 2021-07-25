@@ -52,20 +52,12 @@ a, a:hover, a:focus, a:active {
         foreach ($list as $key => $value) {
       ?>
       <div class="card" style="width: 100%;">
-        <div class="row">
-          <div class="col-4">
-            <img class="card-img-top" src="/<?php echo $value['gambar_warung']; ?>" alt="<?php echo $value['nama_warung']; ?>">
-          </div>
-          <div class="col-8">
-            <div class="">
-              <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
-                <a href="#" style="padding:4px 10px;margin:0 10px;"" class="btn btn-danger topnav-right">Delete</a>
-              <?php } ?>
-              <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_warung']; ?></h5>
-              <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['alamat']; ?></p>
-              <p class=""><?php echo $value['tanggal_kunjungan']; ?></p>
-            </div>
-          </div>
+        <div class="">
+          <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
+            <a href="#" style="padding:4px 10px;margin:0 10px;"" class="btn btn-danger topnav-right">Delete</a>
+          <?php } ?>
+          <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px">XXXX</h5>
+          <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['nilai_donasi']; ?></p>
         </div>
         
       </div>
