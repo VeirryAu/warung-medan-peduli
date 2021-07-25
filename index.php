@@ -44,14 +44,14 @@ a, a:hover, a:focus, a:active {
       </a>
       <div class="grid-container-layout">
         <div class="jumbotron mx-2">
-          <a class="link-ref" href="donasi.php">
+          <a class="link-ref" href="list-donasi.php">
           <div class="home-content-title">Total Donasi</div>
           <div class="home-content-value">641.088.000</div>
           <div class="home-content-description">rupiah <br/> updated 25 Juli 2021, 6:38 PM</div>
           </a>
         </div>
         <div class="jumbotron mx-2">
-          <a class="link-ref" href="warung.php">
+          <a class="link-ref" href="list-warung.php">
           <div class="home-content-title">Total warung yang terbantu</div>
           <div class="home-content-value">129</div>
           <div class="home-content-description">warung</div>
