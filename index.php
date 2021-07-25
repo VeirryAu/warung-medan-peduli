@@ -40,7 +40,7 @@ a, a:hover, a:focus, a:active {
       <div class="container login">
 
       <a href="index.php">
-        <img src="/public/logo-new.png" class="image-logo" />
+        <img src="public/logo-new.png" alt="logo" class="image-logo" width="300" height="300" />
       </a>
       <a class="link-ref" href="donasi.php">
       <div class="home-content-title">Total Donasi</div>

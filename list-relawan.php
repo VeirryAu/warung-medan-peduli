@@ -42,32 +42,32 @@ a, a:hover, a:focus, a:active {
   color: inherit;
 }
 </style>
-<body class="body red">
-  <div class="wrapper red">
-    <div class="container login">
-      <a href="index.php">
-        <img src="/public/logo-new.png" class="image-logo" />
-      </a>
+<body class="body white">
+<?php include 'header.php';getHeader(); ?>
+  <!-- <div class="wrapper red">
+    <div class="container login"> -->
+    <div class="container grid-container mt-4">
+      <div class="grid-container-layout">
       <?php
         foreach ($list as $key => $value) {
       ?>
       <div class="card" style="width: 100%;">
         <div class="row">
           <div class="col-4">
-            <img class="card-img-top" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_warung']; ?>">
+            <img class="card-img-top" style="object-fit: contain;" width="200" height="120" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_relawan']; ?>">
           </div>
           <div class="col-8">
-            <div class="">
+            <div>
               <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
-                <a href="#" style="padding:4px 10px;margin:0 10px;"" class="btn btn-danger topnav-right">Delete</a>
+                <a href="#" style="padding:4px 10px;margin:0 10px;" class="btn btn-danger topnav-right">Delete</a>
               <?php } ?>
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_relawan']; ?></h5>
               <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['jenis_kelamin'] == 1 ? 'Pria' : 'Wanita'; ?></p>
             </div>
           </div>
         </div>
-        
-      </div>
+        </div>
+               
       <?php
         }
       ?>
