@@ -12,7 +12,7 @@
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
     require_once "config.php";
 
-    $sql = "SELECT id, nama_warung, nama_pemilik, phone_no, kecamatan, tanggal_kunjungan, qty_pesanan, jumlah_uang, nama_menu, alamat, gambar_warung, photo_pemilik FROM tbl_warung ORDER BY id DESC LIMIT 400";
+    $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan ORDER BY id DESC LIMIT 400";
 
     if($stmt = mysqli_query($link, $sql)){
       while ($row = mysqli_fetch_assoc($stmt)) {
@@ -54,16 +54,15 @@ a, a:hover, a:focus, a:active {
       <div class="card" style="width: 100%;">
         <div class="row">
           <div class="col-4">
-            <img class="card-img-top" src="/<?php echo $value['gambar_warung']; ?>" alt="<?php echo $value['nama_warung']; ?>">
+            <img class="card-img-top" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_warung']; ?>">
           </div>
           <div class="col-8">
             <div class="">
               <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
                 <a href="#" style="padding:4px 10px;margin:0 10px;"" class="btn btn-danger topnav-right">Delete</a>
               <?php } ?>
-              <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_warung']; ?></h5>
-              <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['alamat']; ?></p>
-              <p class=""><?php echo $value['tanggal_kunjungan']; ?></p>
+              <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_relawan']; ?></h5>
+              <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['jenis_kelamin'] == 1 ? 'Pria' : 'Wanita'; ?></p>
             </div>
           </div>
         </div>
