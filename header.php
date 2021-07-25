@@ -28,7 +28,10 @@
                     <a href="relawan.php">DAFTARKAN RELAWAN</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="warung.php">DAFTARKAN USER</a>
+                    <a href="warung.php">DAFTARKAN WARUNG</a>
+                  </li>
+                  <li class="nav-item p-2 bg-danger-item">
+                    <a href="register.php">DAFTARKAN USER</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
                     <a href="list-warung.php">LIST WARUNG</a>
