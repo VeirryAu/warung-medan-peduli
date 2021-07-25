@@ -12,7 +12,7 @@
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
     require_once "config.php";
 
-    $sql = "SELECT id, nama_warung, nama_pemilik, phone_no, kecamatan, tanggal_kunjungan, qty_pesanan, jumlah_uang, nama_menu, alamat, gambar_warung, photo_pemilik FROM tbl_warung ORDER BY id DESC LIMIT 400";
+    $sql = "SELECT id, nama_donatur, nomor_rekening, nilai_donasi FROM tbl_donasi ORDER BY id DESC LIMIT 400";
 
     if($stmt = mysqli_query($link, $sql)){
       while ($row = mysqli_fetch_assoc($stmt)) {
