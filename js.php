@@ -5,10 +5,7 @@
      }
 
      $str = <<<EOD
-               <script
-                  async
-                  src="https://www.googletagmanager.com/gtag/js?id=G-RMKZFCDM2D"
-                  />
+               <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMKZFCDM2D"></script>
                <script>
                window.dataLayer = window.dataLayer || [];
                function gtag(){dataLayer.push(arguments);}
