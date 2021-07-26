@@ -3,7 +3,7 @@
 
   // Check if the user is already logged in, if yes then redirect him to welcome page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login.php");
+    header("location: login");
     exit;
   }
 
@@ -37,7 +37,7 @@
 
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    require_once "config.php";
+    require_once "config";
     if(empty(trim($_POST["nama_pemilik"]))){
       $form_err = "Please enter nama_pemilik.";
     } else{
@@ -177,14 +177,14 @@
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
-            header("location:warung.php?message=Success%20Input%20Data%20Warung");
+            header("location:warung?message=Success%20Input%20Data%20Warung");
           } else {
-            header("location:warung.php?message=Gagal%20Input%20Data%20Warung&&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+            header("location:warung?message=Gagal%20Input%20Data%20Warung&&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
           }
               
       }
     } else {
-      header("location:warung.php?message=$form_err&nama_warung=$nama_warung&alamat=$alamat&nama_menu=$nama_menu&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+      header("location:warung?message=$form_err&nama_warung=$nama_warung&alamat=$alamat&nama_menu=$nama_menu&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
     }
     mysqli_close($link);
   }
@@ -197,8 +197,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pendaftaran Warung - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css.php'; ?>
-  <?php include 'js.php'; ?>
+  <?php include 'css'; ?>
+  <?php include 'js'; ?>
 </head>
 <style>
 a, a:hover, a:focus, a:active {
@@ -209,7 +209,7 @@ a, a:hover, a:focus, a:active {
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <a href="index.php">
+      <a href="index">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
       <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>
