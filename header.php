@@ -20,18 +20,26 @@
               </button>
               <div class="centeral collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="index.php">HOME</a>
-                  </li>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="relawan.php">DAFTARKAN RELAWAN</a>
-                  </li>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="warung.php">DAFTARKAN WARUNG</a>
-                  </li>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="register.php">DAFTARKAN USER</a>
-                  </li>
+                  <a href="index.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      HOME
+                    </li>
+                  </a>
+                  <a href="relawan.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      DAFTARKAN RELAWAN
+                    </li>
+                  </a>
+                  <a href="warung.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      DAFTARKAN WARUNG
+                    </li>
+                  </a>
+                  <a href="register.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      DAFTARKAN USER
+                    </li>
+                  </a>
                   <li class="nav-item p-2 bg-danger-item">
                     <a href="list-warung.php">LIST WARUNG</a>
                   </li>
