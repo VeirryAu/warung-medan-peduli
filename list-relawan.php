@@ -67,7 +67,7 @@ a, a:hover, a:focus, a:active {
                   </div>
                   <?php } ?>
                   <div>
-                    <a href="detail-warung.php?id=<?php echo $value['id'] ?>"><button id="detailButton" style="padding:4px 10px;margin:0 10px;margin-top:10px;color:#212121;" class="btn btn-default">Detail</button></a>
+                    <a href="detail-relawan.php?id=<?php echo $value['id'] ?>"><button id="detailButton" style="padding:4px 10px;margin:0 10px;margin-top:10px;color:#212121;" class="btn btn-default">Detail</button></a>
                   </div>
                 </div>
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_relawan']; ?></h5>

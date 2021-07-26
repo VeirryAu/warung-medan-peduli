@@ -15,7 +15,7 @@
         if(mysqli_stmt_execute($stmt)){
           mysqli_stmt_store_result($stmt);
           if(mysqli_stmt_num_rows($stmt) == 1){
-            mysqli_stmt_bind_result($stmt, $nama_relawan, $nik, $no_hp, $alamat, $instagram, $rekening, $kendaraan, $relasi, $jenis_kelamin, $umur, $pekerjaan, $available_day, $photo, $createdAt);
+            mysqli_stmt_bind_result($stmt, $id, $nama_relawan, $nik, $no_hp, $alamat, $instagram, $rekening, $kendaraan, $relasi, $jenis_kelamin, $umur, $pekerjaan, $available_day, $photo, $createdAt);
             if(mysqli_stmt_fetch($stmt)){
 
             }
@@ -53,22 +53,20 @@ a, a:hover, a:focus, a:active {
     <div class="" style="width: 100%;">
         <div class="row">
           <div class="col-4">
-            <img class="image-warung-detail" style="padding-left:5px;object-fit: contain;" width="100%" height="120" src="/<?php echo $gambar_warung; ?>" alt="<?php echo $value['nama_warung']; ?>">
+            <img class="image-warung-detail" style="padding-left:5px;object-fit: contain;" width="100%" height="120" src="/<?php echo $photo; ?>" alt="<?php echo $nama_relawan; ?>">
           </div>
           <div class="col-8">
             <div class="">
-              <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $nama_warung; ?></h5>
+              <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $nama_relawan; ?></h5>
               <p class="card-text" style="font-weight:thin;padding:4px 0px;margin:4px 0px;">
-              <?php echo "Pemilik: $nama_pemilik"; ?><br />
               </p>
+              <?php if (!empty($instagram)) { ?>
               <p class="card-text" style="font-weight:thin;padding:4px 0px;margin:4px 0px;">
-              <?php echo "Nomor HP: $phone_no"; ?><br />
-              <?php echo $alamat . ', ' . $kecamatan; ?>
+              <?php echo "Instagram: @" . str_replace("@", "", $instagram); ?><br />
               </p>
+              <?php } ?>
               <p class="card-text" style="font-weight:thin;padding:4px 0px;margin:4px 0px;">
-              <?php echo date("d M Y", strtotime($tanggal_kunjungan)); ?><br />
-              <?php echo $nama_menu . " X " . $qty_pesanan; ?><br />
-              <?php echo "Rp " . number_format($jumlah_uang,2,',','.'); ?><br />
+              <?php echo "Joined: " . date("d M Y", strtotime($createdAt)); ?><br />
               </p>
             </div>
           </div>
