@@ -34,23 +34,23 @@ a, a:hover, a:focus, a:active {
       <?php 
         if ($_SESSION["roleAs"] == "admin") {
       ?>
-        <a href="admin" class="topnav-left">Admin</a>
+        <a href="admin.php" class="topnav-left">Admin</a>
       <?php }?>
       <div class="container login">
 
-      <a href="index">
+      <a href="index.php">
         <img src="public/logo-new.png" alt="logo" class="image-logo" width="300" height="300" />
       </a>
       <div class="grid-container-layout">
         <div class="jumbotron mx-2">
-          <a class="link-ref" href="list-donasi">
+          <a class="link-ref" href="list-donasi.php">
           <div class="home-content-title">Total Donasi</div>
           <div class="home-content-value">863.592.713</div>
           <div class="home-content-description">rupiah <br/> updated 25 Juli 2021, 03:40 PM</div>
           </a>
         </div>
         <div class="jumbotron mx-2">
-          <a class="link-ref" href="list-warung">
+          <a class="link-ref" href="list-warung.php">
           <div class="home-content-title">Total warung yang terbantu</div>
           <div class="home-content-value">152</div>
           <div class="home-content-description">warung</div>
@@ -63,7 +63,7 @@ a, a:hover, a:focus, a:active {
           <div class="home-content-description">paket</div>
         </div>
       </div>
-      <a class="link-ref" href="relawan">
+      <a class="link-ref" href="relawan.php">
         <div class="home-content-title bg-danger text-white btn">Jadi Relawan</div>
       </a>
 

@@ -12,12 +12,12 @@
       </div>
       <div class="col-md-12 col-lg-3">
         <div class="section-title-black system-font">Menu</div>
-        <div class="section-content-black system-font"><a href="about" class="section-content-black no-padding">Tentang Kami</a></div>
-        <div class="section-content-black system-font"><a href="contact-us" class="section-content-black no-padding">Hubungi Kami</a></div>
+        <div class="section-content-black system-font"><a href="about.php" class="section-content-black no-padding">Tentang Kami</a></div>
+        <div class="section-content-black system-font"><a href="contact-us.php" class="section-content-black no-padding">Hubungi Kami</a></div>
         <div class="section-content-black system-font"><a href="index#CLIENT" class="section-content-black no-padding">Klien Kami</a></div>
         <!-- <div class="section-content-black">Klien Kami</div> -->
-        <div class="section-content-black system-font"><a href="testimoni" class="section-content-black no-padding">Testimoni</a></div>
-        <div class="section-content-black system-font"><a href="question" class="section-content-black no-padding">Pertanyaan Umum</a></div>
+        <div class="section-content-black system-font"><a href="testimoni.php" class="section-content-black no-padding">Testimoni</a></div>
+        <div class="section-content-black system-font"><a href="question.php" class="section-content-black no-padding">Pertanyaan Umum</a></div>
         <!-- <div class="section-content-black system-font"><a href="bank-account" class="section-content-black no-padding">Informasi Rekening</a></div> -->
       </div>
       <div class="col-md-12 col-lg-5">

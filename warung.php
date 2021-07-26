@@ -209,7 +209,7 @@ a, a:hover, a:focus, a:active {
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <a href="index">
+      <a href="index.php">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
       <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>

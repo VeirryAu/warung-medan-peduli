@@ -4,11 +4,11 @@
       <header>
         <div class="container">
           <div class="navbar navbar-default">
-            <a class="navbar-brand" href="index">
+            <a class="navbar-brand" href="index.php">
               <img src="./public/logo-new.png" alt="logo" class="" width="100" height="100" />
             </a>
             <div>
-              <a href="logout" class="topnav-right">Log Out</a>
+              <a href="logout.php" class="topnav-right">Log Out</a>
             </div>
           </div>
         </div>
@@ -20,7 +20,7 @@
               </button>
               <div class="centeral collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <a href="index">
+                  <a href="index.php">
                     <li class="nav-item p-2 bg-danger-item">
                       HOME
                     </li>

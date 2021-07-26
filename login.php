@@ -97,7 +97,7 @@
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <a href="index">
+      <a href="index.php">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
     </div>
