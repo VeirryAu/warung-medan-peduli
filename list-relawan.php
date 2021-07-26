@@ -56,7 +56,7 @@ a, a:hover, a:focus, a:active {
       <div class="card" style="width: 100%;">
         <div class="row">
           <div class="col-4">
-            <img class="card-img-top" style="object-fit: contain;" width="120" height="120" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_relawan']; ?>">
+            <img class="image-warung" style="object-fit: contain;" width="120" height="120" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_relawan']; ?>">
           </div>
           <div class="col-8">
             <div>

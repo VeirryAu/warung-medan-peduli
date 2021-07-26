@@ -3,8 +3,10 @@ body {
   color: #212121;
 }
 
-.modal-backdrop.show {
-
+.image-warung {
+  object-fit:cover !important;
+  width: 120px;
+  height: 120px;
 }
 
 .body.red {

@@ -54,12 +54,19 @@ a, a:hover, a:focus, a:active {
       <div class="card" style="width: 100%;">
         <div class="row">
           <div class="col-4">
-            <img class="" style="padding-left:5px;object-fit: contain;" width="120" height="120" src="/<?php echo $value['gambar_warung']; ?>" alt="<?php echo $value['nama_warung']; ?>">
+            <img class="image-warung" style="padding-left:5px;object-fit: contain;" width="120" height="120" src="/<?php echo $value['gambar_warung']; ?>" alt="<?php echo $value['nama_warung']; ?>">
           </div>
           <div class="col-8">
             <div class="">
               <?php if ($_SESSION["roleAs"] == "superadmin") { ?>
-                <button id="deleteButton" onclick="onDelete(<?php echo $value['id'] ?>)" data-toggle="modal" data-target="#exampleModal" style="padding:4px 10px;margin:0 10px;color:white;" class="btn btn-danger topnav-right">Hapus</button>
+                <div class="topnav-right">
+                  <div>
+                  <button id="deleteButton" onclick="onDelete(<?php echo $value['id'] ?>)" data-toggle="modal" data-target="#exampleModal" style="padding:4px 10px;margin:0 10px;color:white;" class="btn btn-danger ">Hapus</button>
+                  </div>
+                  <div>
+                    <button id="detailButton" onclick="onDetail(<?php echo $value['id'] ?>)" data-toggle="modal" style="padding:4px 10px;margin:0 10px;margin-top:10px;color:white;" class="btn btn-danger">Detail</button>
+                  </div>
+                </div>
               <?php } ?>
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_warung']; ?></h5>
               <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['alamat']; ?></p>
