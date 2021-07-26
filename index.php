@@ -59,11 +59,11 @@ a, a:hover, a:focus, a:active {
 
         <div class="jumbotron mx-2">
           <div class="home-content-title">Total makanan yang dibagikan</div>
-          <div class="home-content-value">12.450</div>
+          <div class="home-content-value">7.600</div>
           <div class="home-content-description">paket</div>
         </div>
       </div>
-      <a class="link-ref" href="relawan.php">
+      <a class="link-ref" target="__blank" href="https://bit.ly/RelawanWarungMedanPeduli">
         <div class="home-content-title bg-danger text-white btn">Jadi Relawan</div>
       </a>
 

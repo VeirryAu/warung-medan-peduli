@@ -3,6 +3,10 @@ body {
   color: #212121;
 }
 
+.modal-backdrop.show {
+
+}
+
 .body.red {
   background-color: #ec443a;
 }
@@ -35,6 +39,10 @@ body {
 
 .text-muted {
   color: white !important;
+}
+
+.text-primary {
+  color: #343a40 !important;
 }
 
 .home-content-title {

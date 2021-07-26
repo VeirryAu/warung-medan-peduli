@@ -18,10 +18,13 @@
   }
 
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
-    // Set parameters
-    $nama_donatur = $_GET['nama_donatur'];
-    $nomor_rekening = $_GET['nomor_rekening'];
-    $nilai_donasi = $_GET['nilai_donasi'];
+    if (count($_GET) > 0) {
+      // Set parameters
+      $nama_donatur = $_GET['nama_donatur'];
+      $nomor_rekening = $_GET['nomor_rekening'];
+      $nilai_donasi = $_GET['nilai_donasi'];
+      $tanggal_donasi = $_GET['tanggal_donasi'];
+    }
   }
 
   // Processing form data when form is submitted
@@ -45,29 +48,36 @@
       $nilai_donasi = test_input($_POST["nilai_donasi"]);
     }
 
+    if(empty(trim($_POST["tanggal_donasi"]))){
+      $form_err = "Please enter tanggal_donasi.";
+    } else{
+      $tanggal_donasi = test_input($_POST["tanggal_donasi"]);
+    }
+
     if (empty($form_err)) {
       // Prepare a select statement
-      $sql = "INSERT INTO tbl_donasi (nama_donatur, nomor_rekening, nilai_donasi, createdBy) VALUES(?,?,?,?)";
+      $sql = "INSERT INTO tbl_donasi (nama_donatur, nomor_rekening, nilai_donasi, tanggal_donasi, createdBy) VALUES(?,?,?,?,?)";
       if($stmt = mysqli_prepare($link, $sql)){
           // Bind variables to the prepared statement as parameters
-          mysqli_stmt_bind_param($stmt, "ssss", $param_nama_donatur, $param_nomor_rekening, $param_nilai_donasi, $param_createdBy);
+          mysqli_stmt_bind_param($stmt, "sssss", $param_nama_donatur, $param_nomor_rekening, $param_nilai_donasi, $param_tanggal_donasi, $param_createdBy);
           
           // Set parameters
           $param_nama_donatur = $nama_donatur;
           $param_nomor_rekening = $nomor_rekening;
           $param_nilai_donasi = $nilai_donasi;
+          $param_tanggal_donasi = $tanggal_donasi;
           $param_createdBy = $_SESSION["username"];
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
             header("location:donasi.php?message=Success%20Input%20Data%20Donasi");
           } else {
-            header("location:donasi.php?message=Gagal%20Input%20Data%20Donasi:$stmt->error&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+            header("location:donasi.php?message=Gagal%20Input%20Data%20Donasi:$stmt->error&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi&tanggal_donasi=$tanggal_donasi");
           }
               
       }
     } else {
-      header("location:donasi.php?message=$form_err&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+      header("location:donasi.php?message=$form_err&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi&tanggal_donasi=$tanggal_donasi");
     }
     mysqli_close($link);
   }
@@ -110,6 +120,11 @@ a, a:hover, a:focus, a:active {
         <div class="form-group">
           <label for="nilai_donasi">Nilai Donasi</label>
           <input type="number" name="nilai_donasi" class="form-control" value="<?php echo $nilai_donasi; ?>" id="nilai_donasi" placeholder="Masukkan Nilai Donasi">
+        </div>
+        
+        <div class="form-group">
+          <label for="tanggal_donasi">Tanggal Donasi</label>
+          <input type="date" name="tanggal_donasi" class="form-control" value="<?php if(empty($tanggal_donasi)) {echo date('Y-m-d');} else {echo $tanggal_donasi;}; ?>" id="tanggal_donasi" placeholder="Masukkan Tanggal Donasi">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

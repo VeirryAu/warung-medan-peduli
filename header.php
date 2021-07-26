@@ -25,7 +25,7 @@
                       HOME
                     </li>
                   </a>
-                  <a href="relawan.php">
+                  <a target="__blank" href="https://bit.ly/RelawanWarungMedanPeduli">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH RELAWAN
                     </li>

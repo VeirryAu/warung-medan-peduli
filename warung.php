@@ -241,7 +241,7 @@ a, a:hover, a:focus, a:active {
 
         <div class="form-group">
           <label for="tanggal_kunjungan">Tanggal Kunjungan</label>
-          <input type="date" name="tanggal_kunjungan" class="form-control" value="<?php echo date('Y-m-d'); ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
+          <input type="date" name="tanggal_kunjungan" class="form-control" value="<?php if(empty($tanggal_kunjungan)) {echo date('Y-m-d');} else {echo $tanggal_kunjungan;}; ?>" id="tanggal_kunjungan" placeholder="Masukkan Tanggal Kunjungan">
         </div>
 
         <div class="form-group">
