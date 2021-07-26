@@ -43,7 +43,7 @@ a, a:hover, a:focus, a:active {
 }
 </style>
 <body class="body white">
-<?php include 'header';getHeader(); ?>
+<?php include 'header.php';getHeader(); ?>
   <!-- <div class="wrapper red">
     <div class="container login"> -->
     <div class="container grid-container mt-4">

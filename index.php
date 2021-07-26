@@ -29,7 +29,7 @@ a, a:hover, a:focus, a:active {
       <?php 
         if ($_SESSION["roleAs"] == "superadmin") {
       ?>
-        <?php include 'header';getHeader(); ?>
+        <?php include 'header.php';getHeader(); ?>
       <?php }?>
       <?php 
         if ($_SESSION["roleAs"] == "admin") {
