@@ -8,7 +8,7 @@
     $_SESSION["id"] = null;
     $_SESSION["username"] = null;
     $_SESSION["roleAs"] = null;
-    header("location: login.php");
+    header("location: login");
     exit;
   }
 ?>

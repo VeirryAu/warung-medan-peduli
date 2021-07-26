@@ -3,7 +3,7 @@
 
   // Check if the user is already logged in, if yes then redirect him to welcome page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login.php");
+    header("location: login");
     exit;
   }
 
@@ -39,7 +39,7 @@
 
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    require_once "config.php";
+    require_once "config";
     if(empty(trim($_POST["nama_relawan"]))){
       $form_err = "Please enter nama_relawan.";
     } else{
@@ -167,14 +167,14 @@
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
-            header("location:relawan.php?message=Success%20Input%20Data%20Relawan");
+            header("location:relawan?message=Success%20Input%20Data%20Relawan");
           } else {
-            header("location:relawan.php?message=Gagal%20Input%20Data%20Relawan:$stmt->error&&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
+            header("location:relawan?message=Gagal%20Input%20Data%20Relawan:$stmt->error&&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
           }
               
       }
     } else {
-      header("location:relawan.php?message=$form_err&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
+      header("location:relawan?message=$form_err&nama_relawan=$nama_relawan&nik=$nik&no_hp=$no_hp&alamat=$alamat&instagram=$instagram&rekening=$rekening&kendaraan=$kendaraan&relasi=$relasi&jenis_kelamin=$jenis_kelamin&umur=$umur&pekerjaan=$pekerjaan&available_day=$available_day&photo=$photo");
     }
     mysqli_close($link);
   }
@@ -187,8 +187,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Relawan - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css.php'; ?>
-  <?php include 'js.php'; ?>
+  <?php include 'css'; ?>
+  <?php include 'js'; ?>
 </head>
 <style>
 a, a:hover, a:focus, a:active {
@@ -199,7 +199,7 @@ a, a:hover, a:focus, a:active {
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <a href="index.php">
+      <a href="index">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
       <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-muted topnav-center'>" . $_GET['message'] . "</small>"; ?>

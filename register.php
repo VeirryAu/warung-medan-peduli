@@ -3,12 +3,12 @@
 
   // Check if the user is already logged in, if yes then redirect him to index page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login.php");
+    header("location: login");
     exit;
   }
 
   if ($_SESSION["roleAs"] != "superadmin") {
-    header("location: index.php");
+    header("location: index");
     exit;
   }
 
@@ -24,7 +24,7 @@
 
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    require_once "config.php";
+    require_once "config";
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $form_err = "Please enter username.";
@@ -67,14 +67,14 @@
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-              header("location: register.php?message=Success%20Create%20User");
+              header("location: register?message=Success%20Create%20User");
             } else {
-              header("location: register.php?message=Gagal%20Create%20User&username=$username&fullName=$fullName&roleAs=$roleAs");
+              header("location: register?message=Gagal%20Create%20User&username=$username&fullName=$fullName&roleAs=$roleAs");
             }
                 
         }
     } else {
-      header("location: register.php?message=$form_err&username=$username&fullName=$fullName&roleAs=$roleAs");
+      header("location: register?message=$form_err&username=$username&fullName=$fullName&roleAs=$roleAs");
     }
     
     // Close connection
@@ -89,13 +89,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css.php'; ?>
-  <?php include 'js.php'; ?>
+  <?php include 'css'; ?>
+  <?php include 'js'; ?>
 </head>
 <body class="body red">
   <div class="wrapper red">
     <div class="container login">
-      <a href="index.php">
+      <a href="index">
         <img src="/public/logo-new.png" class="image-logo" />
       </a>
     </div>

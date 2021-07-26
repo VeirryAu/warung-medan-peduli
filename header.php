@@ -4,11 +4,11 @@
       <header>
         <div class="container">
           <div class="navbar navbar-default">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="index">
               <img src="./public/logo-new.png" alt="logo" class="" width="100" height="100" />
             </a>
             <div>
-              <a href="logout.php" class="topnav-right">Log Out</a>
+              <a href="logout" class="topnav-right">Log Out</a>
             </div>
           </div>
         </div>
@@ -20,39 +20,39 @@
               </button>
               <div class="centeral collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <a href="index.php">
+                  <a href="index">
                     <li class="nav-item p-2 bg-danger-item">
-                      TAMBAH HOME
+                      HOME
                     </li>
                   </a>
-                  <a href="relawan.php">
+                  <a href="relawan">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH RELAWAN
                     </li>
                   </a>
-                  <a href="warung.php">
+                  <a href="warung">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH WARUNG
                     </li>
                   </a>
-                  <a href="register.php">
+                  <a href="register">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH USER
                     </li>
                   </a>
-                  <a href="donasi.php">
+                  <a href="donasi">
                     <li class="nav-item p-2 bg-danger-item">
-                      DONASI
+                    TAMBAH DONASI
                     </li>
                   </a>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-warung.php">LIST WARUNG</a>
+                    <a href="list-warung">LIST WARUNG</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-relawan.php">LIST RELAWAN</a>
+                    <a href="list-relawan">LIST RELAWAN</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-donasi.php">LIST DONASI</a>
+                    <a href="list-donasi">LIST DONASI</a>
                   </li>
                 </ul>
               </div>
