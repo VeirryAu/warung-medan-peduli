@@ -11,6 +11,14 @@
 }
 
 @font-face {
+    font-family: 'GothamLight';
+    src: url('../font/GothamLight.woff2') format('woff2'),
+         url('../font/GothamLight.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Gotham';
     src: url('../font/Gotham.woff2') format('woff2'),
          url('../font/poppins-regular-webfont.woff') format('woff');

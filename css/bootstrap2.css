@@ -4770,6 +4770,10 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
+.card-text {
+  font-family: 'GothamLight';
+}
+
 .card-text:last-child {
   margin-bottom: 0;
 }
@@ -10257,7 +10261,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
   .section-font {
-    font-family: 'playfair_displayregular';
+    font-family: 'GothamLight';
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
