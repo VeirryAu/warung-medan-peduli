@@ -3,7 +3,7 @@
 
   // Check if the user is already logged in, if yes then redirect him to index page
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: index");
+    header("location: index.php");
     exit;
   }
 
@@ -60,7 +60,7 @@
                             $_SESSION["roleAs"] = $roleAs;
                             
                             // Redirect user to index page
-                            header("location: index");
+                            header("location: index.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";

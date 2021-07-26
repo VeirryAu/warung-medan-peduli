@@ -3,7 +3,7 @@
 
   // Check if the user is already logged in, if yes then redirect him to welcome page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login");
+    header("location: login.php");
     exit;
   }
 
@@ -60,14 +60,14 @@
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
-            header("location:donasi?message=Success%20Input%20Data%20Donasi");
+            header("location:donasi.php?message=Success%20Input%20Data%20Donasi");
           } else {
-            header("location:donasi?message=Gagal%20Input%20Data%20Donasi:$stmt->error&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+            header("location:donasi.php?message=Gagal%20Input%20Data%20Donasi:$stmt->error&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
           }
               
       }
     } else {
-      header("location:donasi?message=$form_err&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
+      header("location:donasi.php?message=$form_err&nama_donatur=$nama_donatur&nomor_rekening=$nomor_rekening&nilai_donasi=$nilai_donasi");
     }
     mysqli_close($link);
   }

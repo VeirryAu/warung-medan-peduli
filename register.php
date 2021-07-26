@@ -3,12 +3,12 @@
 
   // Check if the user is already logged in, if yes then redirect him to index page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login");
+    header("location: login.php");
     exit;
   }
 
   if ($_SESSION["roleAs"] != "superadmin") {
-    header("location: index");
+    header("location: index.php");
     exit;
   }
 
@@ -67,14 +67,14 @@
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-              header("location: register?message=Success%20Create%20User");
+              header("location: register.php?message=Success%20Create%20User");
             } else {
-              header("location: register?message=Gagal%20Create%20User&username=$username&fullName=$fullName&roleAs=$roleAs");
+              header("location: register.php?message=Gagal%20Create%20User&username=$username&fullName=$fullName&roleAs=$roleAs");
             }
                 
         }
     } else {
-      header("location: register?message=$form_err&username=$username&fullName=$fullName&roleAs=$roleAs");
+      header("location: register.php?message=$form_err&username=$username&fullName=$fullName&roleAs=$roleAs");
     }
     
     // Close connection

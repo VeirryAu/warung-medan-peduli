@@ -3,7 +3,7 @@
 
   // Check if the user is already logged in, if yes then redirect him to welcome page
   if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login");
+    header("location: login.php");
     exit;
   }
 
@@ -177,14 +177,14 @@
 
           // Attempt to execute the prepared statement
           if(mysqli_stmt_execute($stmt)){
-            header("location:warung?message=Success%20Input%20Data%20Warung");
+            header("location:warung.php?message=Success%20Input%20Data%20Warung");
           } else {
-            header("location:warung?message=Gagal%20Input%20Data%20Warung&&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+            header("location:warung.php?message=Gagal%20Input%20Data%20Warung&&nama_warung=$nama_warung&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
           }
               
       }
     } else {
-      header("location:warung?message=$form_err&nama_warung=$nama_warung&alamat=$alamat&nama_menu=$nama_menu&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
+      header("location:warung.php?message=$form_err&nama_warung=$nama_warung&alamat=$alamat&nama_menu=$nama_menu&nama_pemilik=$nama_pemilik&phone_no=$phone_no&kecamatan=$kecamatan&longitude=$longitude&latitude=$latitude&tanggal_kunjungan=$tanggal_kunjungan&qty_pesanan=$qty_pesanan&jumlah_uang=$jumlah_uang&createdBy=$createdBy&gambar_warung=$gambar_warung&photo_pemilik=$photo_pemilik");
     }
     mysqli_close($link);
   }
