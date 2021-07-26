@@ -1,11 +1,11 @@
 <?php
-  session_start();
+  // session_start();
 
-  // Check if the user is already logged in, if yes then redirect him to welcome page
-  if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
-    header("location: login.php");
-    exit;
-  }
+  // // Check if the user is already logged in, if yes then redirect him to welcome page
+  // if(!(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)){
+  //   header("location: login.php");
+  //   exit;
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,12 @@ a, a:hover, a:focus, a:active {
 <body class="body white">
   <div class="text-primary">
       <?php 
-        if ($_SESSION["roleAs"] == "superadmin") {
+        // if ($_SESSION["roleAs"] == "superadmin") {
       ?>
         <?php include 'header.php';getHeader(); ?>
-      <?php }?>
+      <?php 
+    // }
+    ?>
       <?php 
         if ($_SESSION["roleAs"] == "admin") {
       ?>
