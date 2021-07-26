@@ -5,12 +5,12 @@
      }
 
      $str = <<<EOD
-               <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMKZFSCDM2D"></script>
+               <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMKZFCDM2D"></script>
                <script>
                window.dataLayer = window.dataLayer || [];
                function gtag(){dataLayer.push(arguments);}
                gtag('js', new Date());
-               gtag('config', 'G-RMKZFSCDM2D',{ page_path: window.location.pathname });
+               gtag('config', 'G-RMKZFCDM2D',{ page_path: window.location.pathname });
                </script>
               
 EOD;
