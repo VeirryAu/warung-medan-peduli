@@ -22,22 +22,22 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   <a href="index.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      HOME
+                      TAMBAH HOME
                     </li>
                   </a>
                   <a href="relawan.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      RELAWAN
+                    TAMBAH RELAWAN
                     </li>
                   </a>
                   <a href="warung.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      WARUNG
+                    TAMBAH WARUNG
                     </li>
                   </a>
                   <a href="register.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      USER
+                    TAMBAH USER
                     </li>
                   </a>
                   <a href="donasi.php">
