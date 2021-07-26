@@ -27,17 +27,22 @@
                   </a>
                   <a href="relawan.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      DAFTARKAN RELAWAN
+                      RELAWAN
                     </li>
                   </a>
                   <a href="warung.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      DAFTARKAN WARUNG
+                      WARUNG
                     </li>
                   </a>
                   <a href="register.php">
                     <li class="nav-item p-2 bg-danger-item">
-                      DAFTARKAN USER
+                      USER
+                    </li>
+                  </a>
+                  <a href="donasi.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      DONASI
                     </li>
                   </a>
                   <li class="nav-item p-2 bg-danger-item">
