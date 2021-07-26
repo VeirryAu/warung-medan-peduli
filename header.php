@@ -25,34 +25,34 @@
                       HOME
                     </li>
                   </a>
-                  <a href="relawan">
+                  <a href="relawan.php">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH RELAWAN
                     </li>
                   </a>
-                  <a href="warung">
+                  <a href="warung.php">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH WARUNG
                     </li>
                   </a>
-                  <a href="register">
+                  <a href="register.php">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH USER
                     </li>
                   </a>
-                  <a href="donasi">
+                  <a href="donasi.php">
                     <li class="nav-item p-2 bg-danger-item">
                     TAMBAH DONASI
                     </li>
                   </a>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-warung">LIST WARUNG</a>
+                    <a href="list-warung.php">LIST WARUNG</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-relawan">LIST RELAWAN</a>
+                    <a href="list-relawan.php">LIST RELAWAN</a>
                   </li>
                   <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-donasi">LIST DONASI</a>
+                    <a href="list-donasi.php">LIST DONASI</a>
                   </li>
                 </ul>
               </div>
