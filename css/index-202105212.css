@@ -9,6 +9,13 @@ body {
   height: 120px;
 }
 
+.image-warung-detail {
+  object-fit:cover !important;
+  width: 100%;
+  height: 350px;
+  max-height: 350px;
+}
+
 .body.red {
   background-color: #ec443a;
 }

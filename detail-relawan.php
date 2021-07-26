@@ -8,14 +8,14 @@
     require_once "config.php";
 
     if (!empty($_GET['id'])) {
-      $sql = "SELECT id, nama_warung, nama_pemilik, phone_no, kecamatan, tanggal_kunjungan, qty_pesanan, jumlah_uang, nama_menu, alamat, gambar_warung, photo_pemilik FROM tbl_warung WHERE id = ? ORDER BY id DESC LIMIT 1";
+      $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan WHERE id = ? ORDER BY id DESC LIMIT 1";
       if($stmt = mysqli_prepare($link, $sql)){
         mysqli_stmt_bind_param($stmt, "i", $param_id);
         $param_id = $_GET['id'];
         if(mysqli_stmt_execute($stmt)){
           mysqli_stmt_store_result($stmt);
           if(mysqli_stmt_num_rows($stmt) == 1){
-            mysqli_stmt_bind_result($stmt, $id, $nama_warung, $nama_pemilik, $phone_no, $kecamatan, $tanggal_kunjungan, $qty_pesanan, $jumlah_uang, $nama_menu, $alamat, $gambar_warung, $photo_pemilik);
+            mysqli_stmt_bind_result($stmt, $nama_relawan, $nik, $no_hp, $alamat, $instagram, $rekening, $kendaraan, $relasi, $jenis_kelamin, $umur, $pekerjaan, $available_day, $photo, $createdAt);
             if(mysqli_stmt_fetch($stmt)){
 
             }
@@ -36,7 +36,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Warung - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
+  <title>Detail Relawan <?php echo $nama_relawan ?> - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
   <?php include "css.php" ?>
   <?php include "js.php" ?>
 </head>
@@ -77,34 +77,5 @@ a, a:hover, a:focus, a:active {
     </div>
   <div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form action="delete-warung.php" method="POST">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Hapus Warung</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <input type="hidden" value="" name="id_warung" id="id_warung" />
-        </div>
-        <div class="modal-body">
-          <p>Apakah kamu yakin untuk delete warung ini?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-danger">Hapus</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 </body>
-<script>
-  function onDelete (id) {
-    $('#id_warung').val(id)
-  }
-</script>
 </html>

@@ -12,7 +12,7 @@
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
     require_once "config.php";
 
-    $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan ORDER BY id DESC LIMIT 300";
+    $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan ORDER BY id DESC LIMIT 100";
 
     if($stmt = mysqli_query($link, $sql)){
       while ($row = mysqli_fetch_assoc($stmt)) {
@@ -60,9 +60,16 @@ a, a:hover, a:focus, a:active {
           </div>
           <div class="col-8">
             <div>
-              <?php if ($_SESSION["roleAs"] == "superadmin") { ?>
-                <button id="deleteButton" onclick="onDelete(<?php echo $value['id'] ?>)" data-toggle="modal" data-target="#exampleModal" style="padding:4px 10px;margin:0 10px;color:white;" class="btn btn-danger topnav-right">Hapus</button>
-              <?php } ?>
+            <div class="topnav-right">
+                  <?php if ($_SESSION["roleAs"] == "superadmin") { ?>
+                  <div>
+                    <button id="deleteButton" onclick="onDelete(<?php echo $value['id'] ?>)" data-toggle="modal" data-target="#exampleModal" style="padding:4px 10px;margin:0 10px;color:white;" class="btn btn-danger ">Hapus</button>
+                  </div>
+                  <?php } ?>
+                  <div>
+                    <a href="detail-warung.php?id=<?php echo $value['id'] ?>"><button id="detailButton" style="padding:4px 10px;margin:0 10px;margin-top:10px;color:#212121;" class="btn btn-default">Detail</button></a>
+                  </div>
+                </div>
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_relawan']; ?></h5>
               <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['jenis_kelamin'] == 1 ? 'Pria' : 'Wanita'; ?></p>
             </div>
