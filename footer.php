@@ -12,20 +12,20 @@
       </div>
       <div class="col-md-12 col-lg-3">
         <div class="section-title-black system-font">Menu</div>
-        <div class="section-content-black system-font"><a href="about.php" class="section-content-black no-padding">Tentang Kami</a></div>
-        <div class="section-content-black system-font"><a href="contact-us.php" class="section-content-black no-padding">Hubungi Kami</a></div>
-        <div class="section-content-black system-font"><a href="index.php#CLIENT" class="section-content-black no-padding">Klien Kami</a></div>
+        <div class="section-content-black system-font"><a href="about" class="section-content-black no-padding">Tentang Kami</a></div>
+        <div class="section-content-black system-font"><a href="contact-us" class="section-content-black no-padding">Hubungi Kami</a></div>
+        <div class="section-content-black system-font"><a href="index#CLIENT" class="section-content-black no-padding">Klien Kami</a></div>
         <!-- <div class="section-content-black">Klien Kami</div> -->
-        <div class="section-content-black system-font"><a href="testimoni.php" class="section-content-black no-padding">Testimoni</a></div>
-        <div class="section-content-black system-font"><a href="question.php" class="section-content-black no-padding">Pertanyaan Umum</a></div>
-        <!-- <div class="section-content-black system-font"><a href="bank-account.php" class="section-content-black no-padding">Informasi Rekening</a></div> -->
+        <div class="section-content-black system-font"><a href="testimoni" class="section-content-black no-padding">Testimoni</a></div>
+        <div class="section-content-black system-font"><a href="question" class="section-content-black no-padding">Pertanyaan Umum</a></div>
+        <!-- <div class="section-content-black system-font"><a href="bank-account" class="section-content-black no-padding">Informasi Rekening</a></div> -->
       </div>
       <div class="col-md-12 col-lg-5">
         <div class="section-title-black-follow system-font">Folow Us</div>
         <div class="row-item">
           <a target="_blank" href="https://www.instagram.com/masterpiece_id/"><div class="section-content-black ic-item system-font"><img class="ic-item" src="/public/footer/1.png"/></div></a>
           <a target="_blank" href="https://www.tiktok.com/@masterpiece_id"><div class="section-content-black ic-item system-font"><img class="ic-item" src="/public/footer/2.png"/></div></a>
-          <a target="_blank" href="https://www.facebook.com/profile.php?id=1310408362"><div class="section-content-black ic-item system-font"><img class="ic-item" src="/public/footer/3.png"/></div></a>
+          <a target="_blank" href="https://www.facebook.com/profile?id=1310408362"><div class="section-content-black ic-item system-font"><img class="ic-item" src="/public/footer/3.png"/></div></a>
           <a target="_blank" href="https://www.youtube.com/channel/UC9iOyxT5cwkN7zFV9t6RTsw"><div class="section-content-black ic-item system-font"><img class="ic-item" src="/public/footer/4.png"/></div></a>
         </div>
         <!-- <div class="section-content-black">Tentang Kami</div> -->
