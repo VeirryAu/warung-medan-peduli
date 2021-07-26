@@ -1,5 +1,6 @@
 <?php
-     foreach(glob("js/*.js") as $css_file)
+      echo "<meta name='description' content='Warung Medan Peduli'>";
+      foreach(glob("js/*.js") as $css_file)
      {
         echo '<script src="'.$css_file.'"></script>';
      }
