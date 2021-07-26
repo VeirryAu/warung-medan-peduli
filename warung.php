@@ -37,7 +37,7 @@
 
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    require_once "config";
+    require_once "config.php";
     if(empty(trim($_POST["nama_pemilik"]))){
       $form_err = "Please enter nama_pemilik.";
     } else{
@@ -197,8 +197,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pendaftaran Warung - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css'; ?>
-  <?php include 'js'; ?>
+  <?php include "css.php" ?>
+  <?php include "js.php" ?>
 </head>
 <style>
 a, a:hover, a:focus, a:active {

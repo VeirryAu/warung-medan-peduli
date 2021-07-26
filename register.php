@@ -24,7 +24,7 @@
 
   // Processing form data when form is submitted
   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    require_once "config";
+    require_once "config.php";
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $form_err = "Please enter username.";
@@ -89,8 +89,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css'; ?>
-  <?php include 'js'; ?>
+  <?php include "css.php" ?>
+  <?php include "js.php" ?>
 </head>
 <body class="body red">
   <div class="wrapper red">

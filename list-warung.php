@@ -10,7 +10,7 @@
   $list = array();
 
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
-    require_once "config";
+    require_once "config.php";
 
     $sql = "SELECT id, nama_warung, nama_pemilik, phone_no, kecamatan, tanggal_kunjungan, qty_pesanan, jumlah_uang, nama_menu, alamat, gambar_warung, photo_pemilik FROM tbl_warung ORDER BY id DESC LIMIT 400";
 
@@ -33,8 +33,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Warung - Warung Medan Peduli | Untuk Relawan dan Pengurus | warungmedanpeduli.com</title>
-  <?php include 'css'; ?>
-  <?php include 'js'; ?>
+  <?php include "css.php" ?>
+  <?php include "js.php" ?>
 </head>
 <style>
 a, a:hover, a:focus, a:active {
@@ -57,7 +57,7 @@ a, a:hover, a:focus, a:active {
           <div class="col-8">
             <div class="">
               <?php if ($_SESSION["roleAs"] == "admin" || $_SESSION["roleAs"] == "superadmin") { ?>
-                <a href="#" style="padding:4px 10px;margin:0 10px;" class="btn btn-danger topnav-right">Delete</a>
+                <a href="#" style="padding:4px 10px;margin:0 10px;color:white;" class="btn btn-danger topnav-right">Delete</a>
               <?php } ?>
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $value['nama_warung']; ?></h5>
               <p class="card-text" style="padding:4px 0px;margin:4px 0px;"><?php echo $value['alamat']; ?></p>
