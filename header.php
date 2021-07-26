@@ -45,15 +45,21 @@
                     TAMBAH DONASI
                     </li>
                   </a>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-warung.php">LIST WARUNG</a>
-                  </li>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-relawan.php">LIST RELAWAN</a>
-                  </li>
-                  <li class="nav-item p-2 bg-danger-item">
-                    <a href="list-donasi.php">LIST DONASI</a>
-                  </li>
+                  <a href="list-warung.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      LIST WARUNG
+                    </li>
+                  </a>
+                  <a href="list-relawan.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      LIST RELAWAN
+                    </li>
+                  </a>
+                  <a href="list-donasi.php">
+                    <li class="nav-item p-2 bg-danger-item">
+                      LIST DONASI
+                    </li>
+                  </a>
                 </ul>
               </div>
             </nav>
