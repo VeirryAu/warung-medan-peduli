@@ -47,8 +47,8 @@ a, a:hover, a:focus, a:active {
         <div class="jumbotron mx-2">
           <a class="link-ref" href="list-donasi.php">
           <div class="home-content-title">Total Donasi</div>
-          <div class="home-content-value">953.459.601</div>
-          <div class="home-content-description">rupiah <br/> updated 25 Juli 2021, 03:40 PM</div>
+          <div class="home-content-value">1.001.072.812</div>
+          <div class="home-content-description">rupiah <br/> updated 26 Juli 2021, 23:59</div>
           </a>
         </div>
         <div class="jumbotron mx-2">
