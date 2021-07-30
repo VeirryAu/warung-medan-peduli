@@ -52,7 +52,7 @@ a, a:hover, a:focus, a:active {
           <div class="col-4">
             <img class="image-warung" style="object-fit: contain;" width="120" height="120" src="/<?php echo $value['photo']; ?>" alt="<?php echo $value['nama_relawan']; ?>">
           </div>
-          <div class="col-8">
+          <div class="col-7" style="margin-left:10px">
             <div>
             <div class="topnav-right">
                   <?php if ($_SESSION["roleAs"] == "superadmin") { ?>
