@@ -52,10 +52,10 @@ a, a:hover, a:focus, a:active {
       <?php if (!empty($_GET['message'])) echo "<small id='emailHelp' class='form-text text-primary topnav-center'>" . $_GET['message'] . "</small>"; ?>
     <div class="" style="width: 100%;">
         <div class="row">
-          <div class="col-4">
+          <div class="col-md-12 col-lg-4">
             <img class="image-warung-detail" style="padding-left:5px;object-fit: contain;" width="100%" height="120" src="/<?php echo $photo; ?>" alt="<?php echo $nama_relawan; ?>">
           </div>
-          <div class="col-8">
+          <div class="col-md-12 col-lg-8">
             <div class="">
               <h5 class="card-title" style="padding:4px 0px;margin:0px;margin-top:10px"><?php echo $nama_relawan; ?></h5>
               <p class="card-text" style="font-weight:thin;padding:4px 0px;margin:4px 0px;">
