@@ -6,7 +6,7 @@
   if ($_SERVER["REQUEST_METHOD"] =="GET"){
     require_once "config.php";
 
-    $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan ORDER BY id DESC LIMIT 100";
+    $sql = "SELECT id, nama_relawan, nik, no_hp, alamat, instagram, rekening, kendaraan, relasi, jenis_kelamin, umur, pekerjaan, available_day, photo, createdAt FROM tbl_relawan ORDER BY id DESC LIMIT 200";
 
     if($stmt = mysqli_query($link, $sql)){
       while ($row = mysqli_fetch_assoc($stmt)) {
